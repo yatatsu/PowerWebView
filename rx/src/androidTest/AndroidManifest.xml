@@ -1,0 +1,10 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.yatatsu.powerwebview.rx">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application>
+        <activity android:name=".RxPowerWebViewActivity" />
+    </application>
+
+</manifest>

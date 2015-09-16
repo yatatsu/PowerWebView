@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">powerwebview-example</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_standard">standard</string>
+    <string name="action_basic_auth">basic auth</string>
+    <string name="action_rx">rx binding</string>
+    <string name="action_reload">reload</string>
+    <string name="label_reload">再読み込み</string>
+    <string name="label_error_message">ページを読み込めませんでした。</string>
+    <string name="action_playstore">go to store</string>
+</resources>

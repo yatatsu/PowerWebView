@@ -1,0 +1,23 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity">
+
+    <item android:id="@+id/action_reload"
+        android:title="@string/action_reload"
+        android:icon="@android:drawable/ic_menu_rotate"
+        app:showAsAction="ifRoom"/>
+
+    <item android:id="@+id/action_basic_auth"
+        android:title="@string/action_basic_auth"
+        app:showAsAction="never" />
+
+    <item android:id="@+id/action_rx"
+        android:title="@string/action_rx"
+        app:showAsAction="never" />
+
+    <item android:id="@+id/action_playstore"
+        android:title="@string/action_playstore"
+        app:showAsAction="never" />
+
+</menu>
