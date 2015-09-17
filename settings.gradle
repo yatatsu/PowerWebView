@@ -1,1 +1,1 @@
-include ':library', ':rx', ':example'
+include ':powerwebview', ':powerwebview-rx', ':example'
