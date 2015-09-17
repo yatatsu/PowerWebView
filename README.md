@@ -18,14 +18,6 @@ PowerWebView is a wrapper of android.webkit.WebView.
 Add to your project build.gradle file:
 
 ```
-repositories {
-    jcenter()
-
-    maven {
-        url 'http://dl.bintray.com/yatatsu/maven'
-    }
-}
-
 dependencies {
     compile 'com.github.yatatsu:powerwebview:0.1.4'
     compile 'com.github.yatatsu:powerwebview-rx:0.1.4' // rx-plugin
