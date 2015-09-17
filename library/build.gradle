@@ -1,6 +1,5 @@
 apply plugin: 'android-sdk-manager'
 apply plugin: 'com.android.library'
-apply plugin: 'com.novoda.bintray-release'
 
 android {
     compileSdkVersion 23
@@ -22,11 +21,80 @@ dependencies {
     compile 'com.android.support:support-annotations:23.0.1'
 }
 
-publish {
-    userOrg = USER
-    groupId = GROUP_ID
-    artifactId = ARTIFACT_ID
-    version = ARTIFACT_VERSION
-    description = ARTIFACT_DESCRIPTION
-    website = WEBSITE
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.jfrog.bintray'
+
+group = GROUP_ID
+version = ARTIFACT_VERSION
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
+bintray {
+    user = properties.getProperty("bintray_user")
+    key = properties.getProperty("bintray_api_key")
+    configurations = ['archives'] //When uploading configuration files
+    pkg {
+        repo = 'maven'
+        name = ARTIFACT_ID
+        desc = ARTIFACT_DESCRIPTION
+        websiteUrl = WEBSITE
+        issueTrackerUrl = ISSUE_TRACKER_URL
+        vcsUrl = GIT_URL
+        licenses = ['Apache-2.0']
+        labels = ['android']
+        publicDownloadNumbers = true
+    }
+}
+
+install {
+    repositories.mavenInstaller {
+        pom {
+            project {
+                packaging 'aar'
+                name ARTIFACT_ID
+                url WEBSITE
+                licenses {
+                    license {
+                        name 'The Apache Software License, Version 2.0'
+                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+                developers {
+                    developer {
+                        id USER
+                        name USER_NAME
+                        email USER_MAIL
+                    }
+                }
+                scm {
+                    connection GIT_URL
+                    developerConnection GIT_URL
+                    url WEBSITE
+                }
+            }
+        }
+    }
+}
+
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+
+task javadoc(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+artifacts {
+    archives javadocJar
+    archives sourcesJar
+}
+
+task findConventions << {
+    println project.getConvention()
 }
