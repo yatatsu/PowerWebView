@@ -1,5 +1,8 @@
 # PowerWebView
 
+[ ![Download](https://api.bintray.com/packages/yatatsu/maven/powerwebview/images/download.svg) ](https://bintray.com/yatatsu/maven/powerwebview/_latestVersion)
+[![Build Status](https://travis-ci.org/yatatsu/PowerWebView.svg)](https://travis-ci.org/yatatsu/PowerWebView)
+
 PowerWebView is a wrapper of android.webkit.WebView.
 
 ## Feature
@@ -9,6 +12,25 @@ PowerWebView is a wrapper of android.webkit.WebView.
 - Delegate SSL/BasicAuth handling.
 - Intercept page loading. (evaluating and preventing.)
 - RxBinding for page load event. (with rx plugin)
+
+## Download
+
+Add to your project build.gradle file:
+
+```
+repositories {
+    jcenter()
+
+    maven {
+        url 'http://dl.bintray.com/yatatsu/maven'
+    }
+}
+
+dependencies {
+    compile 'com.github.yatatsu:powerwebview:0.1.4'
+    compile 'com.github.yatatsu:powerwebview-rx:0.1.4' // rx-plugin
+}
+```
 
 ## See also
 
