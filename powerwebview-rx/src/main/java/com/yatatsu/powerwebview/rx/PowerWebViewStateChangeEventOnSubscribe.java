@@ -5,12 +5,13 @@ import android.graphics.Bitmap;
 import android.os.Looper;
 import android.webkit.WebView;
 
+import com.cookpad.android.rxt4a.subscriptions.AndroidSubscriptions;
 import com.yatatsu.powerwebview.LoadStateWatcher;
 import com.yatatsu.powerwebview.PowerWebView;
-import com.jakewharton.rxbinding.internal.MainThreadSubscription;
 
 import rx.Observable;
 import rx.Subscriber;
+import rx.functions.Action0;
 
 final class PowerWebViewStateChangeEventOnSubscribe
         implements Observable.OnSubscribe<PowerWebViewStateChangeEvent> {
@@ -65,12 +66,12 @@ final class PowerWebViewStateChangeEventOnSubscribe
         };
         view.loadStateWatchers().add(watcher);
 
-        subscriber.add(new MainThreadSubscription() {
+        subscriber.add(AndroidSubscriptions.unsubscribeOnMainThread(new Action0() {
             @Override
-            protected void onUnsubscribe() {
+            public void call() {
                 view.loadStateWatchers().remove(watcher);
             }
-        });
+        }));
     }
 
     static void checkUiThread() {
