@@ -6,6 +6,7 @@ import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 import android.test.UiThreadTest;
 
+import com.cookpad.android.rxt4a.schedulers.AndroidSchedulers;
 import com.yatatsu.powerwebview.PowerWebView;
 
 import org.junit.Before;
@@ -16,7 +17,6 @@ import org.junit.runner.RunWith;
 import java.util.NoSuchElementException;
 
 import rx.Subscription;
-import rx.android.schedulers.AndroidSchedulers;
 
 import static com.google.common.truth.Truth.assertThat;
 
