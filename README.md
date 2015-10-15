@@ -11,7 +11,7 @@ PowerWebView is a wrapper of android.webkit.WebView.
 - Simple Callback of page loading event.
 - Delegate SSL/BasicAuth handling.
 - Intercept page loading. (evaluating and preventing.)
-- RxBinding for page load event. (with rx plugin)
+- Rx binding for page load event. (with rx plugin)
 
 ## Download
 
@@ -19,10 +19,12 @@ Add to your project build.gradle file:
 
 ```
 dependencies {
-    compile 'com.github.yatatsu:powerwebview:0.1.4'
-    compile 'com.github.yatatsu:powerwebview-rx:0.1.4' // rx-plugin
+    compile 'com.github.yatatsu:powerwebview:0.3.0'
+    compile 'com.github.yatatsu:powerwebview-rx:0.3.0' // rx plugin
 }
 ```
+
+``powerwebview-rx`` has dependencies with ``RxJava 1.0.14`` and ``RxAndroid 1.0.1``.
 
 ## See also
 
