@@ -48,6 +48,7 @@ dependencies {
     compile 'com.jakewharton.timber:timber:3.1.0'
 
     compile 'io.reactivex:rxjava:1.0.14'
+    compile 'io.reactivex:rxandroid:1.0.1'
 
     compile project(":powerwebview")
     compile project(":powerwebview-rx")

@@ -5,7 +5,6 @@ import android.graphics.Bitmap;
 import android.os.Looper;
 import android.webkit.WebView;
 
-import com.cookpad.android.rxt4a.subscriptions.AndroidSubscriptions;
 import com.yatatsu.powerwebview.LoadStateWatcher;
 import com.yatatsu.powerwebview.PowerWebView;
 
@@ -66,7 +65,7 @@ final class PowerWebViewStateChangeEventOnSubscribe
         };
         view.loadStateWatchers().add(watcher);
 
-        subscriber.add(AndroidSubscriptions.unsubscribeOnMainThread(new Action0() {
+        subscriber.add(MainThreadSubscription.unsubscribeOnMainThread(new Action0() {
             @Override
             public void call() {
                 view.loadStateWatchers().remove(watcher);

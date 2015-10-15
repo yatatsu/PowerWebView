@@ -9,7 +9,6 @@ import android.webkit.WebView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 
-import com.cookpad.android.rxt4a.schedulers.AndroidSchedulers;
 import com.yatatsu.powerwebview.LoadStateWatcher;
 import com.yatatsu.powerwebview.PowerWebView;
 import com.yatatsu.powerwebview.rx.PowerWebViewStateChangeEvent;
@@ -19,6 +18,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import rx.Subscription;
+import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
 import rx.functions.Func1;
 import rx.observers.Subscribers;
