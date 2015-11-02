@@ -19,8 +19,8 @@ Add to your project build.gradle file:
 
 ```
 dependencies {
-    compile 'com.github.yatatsu:powerwebview:0.3.0'
-    compile 'com.github.yatatsu:powerwebview-rx:0.3.0' // rx plugin
+    compile 'com.github.yatatsu:powerwebview:0.3.1'
+    compile 'com.github.yatatsu:powerwebview-rx:0.3.1' // rx plugin
 }
 ```
 
