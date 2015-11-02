@@ -206,7 +206,7 @@ public class PowerWebView extends WebView {
         @Override
         public void onPageStarted(WebView view, String url, Bitmap favicon) {
             super.onPageStarted(view, url, favicon);
-            if (powerWebViewState != LOADING) {
+            if (powerWebViewState == STOPPED) {
                 powerWebViewState = LOADING;
                 for (LoadStateWatcher watcher : loadStateWatchers) {
                     watcher.onStarted(view, url, favicon);
@@ -219,6 +219,7 @@ public class PowerWebView extends WebView {
             super.onPageFinished(view, url);
             if (powerWebViewState == LOADING) {
                 for (LoadStateWatcher watcher : loadStateWatchers) {
+                    watcher.onProgressChanged(view, 100);
                     watcher.onFinished(view, url);
                 }
             }
