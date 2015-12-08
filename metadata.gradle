@@ -1,0 +1,10 @@
+ext {
+    metadata = [
+            groupId: 'com.github.yatatsu',
+            desc: 'https://github.com/yatatsu/PowerWebView',
+            website: 'https://github.com/yatatsu/AutoBundle',
+            repository: 'git@github.com:yatatsu/AutoBundle.git',
+            version: '0.3.1',
+            licences: ['Apache-2.0']
+    ]
+}
