@@ -2,7 +2,6 @@ package com.yatatsu.powerwebview;
 
 
 import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
@@ -14,12 +13,9 @@ import android.util.AttributeSet;
 import android.webkit.HttpAuthHandler;
 import android.webkit.SslErrorHandler;
 import android.webkit.WebChromeClient;
-import android.webkit.WebResourceError;
-import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
@@ -82,8 +78,8 @@ public class PowerWebView extends WebView {
     }
 
     private void init(Context context, AttributeSet attrs) {
-        setWebViewClient(new PowerWebViewClient());
-        setWebChromeClient(new PowerWebChromeClient());
+        setWebViewClient(createWebViewClient());
+        setWebChromeClient(createWebChromeClient());
 
         TypedArray args;
         if (attrs != null) {
@@ -95,6 +91,14 @@ public class PowerWebView extends WebView {
         args.recycle();
 
         removeJavascriptInterface("searchBoxJavaBridge_");
+    }
+
+    protected WebViewClient createWebViewClient() {
+        return new PowerWebViewClient();
+    }
+
+    protected WebChromeClient createWebChromeClient() {
+        return new PowerWebChromeClient();
     }
 
     @SuppressLint("SetJavaScriptEnabled")
@@ -224,20 +228,6 @@ public class PowerWebView extends WebView {
                 }
             }
             powerWebViewState = STOPPED;
-        }
-
-        @TargetApi(23) /// Build.VERSION_CODES.MARSHMALLOW
-        @Override
-        public void onReceivedError(
-                WebView view, WebResourceRequest request, WebResourceError error) {
-            super.onReceivedError(view, request, error);
-            powerWebViewState = ERROR;
-            String url = request.getUrl().toString();
-            int errorCode = error.getErrorCode();
-            String description = error.getDescription().toString();
-            for (LoadStateWatcher watcher : loadStateWatchers) {
-                watcher.onError(view, errorCode, description, url);
-            }
         }
 
         @SuppressWarnings("deprecation")
