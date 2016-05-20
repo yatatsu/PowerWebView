@@ -7,6 +7,7 @@ import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.net.http.SslError;
+import android.os.Build;
 import android.support.annotation.IntDef;
 import android.text.TextUtils;
 import android.util.AttributeSet;
@@ -169,6 +170,10 @@ public class PowerWebView extends WebView {
         setting.setSupportMultipleWindows(supportMultipleWindows);
         setting.setSupportZoom(supportZoom);
         setting.setUseWideViewPort(useWideViewPort);
+
+        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.JELLY_BEAN_MR2) {
+            setting.setSavePassword(false);
+        }
     }
 
     @Override
