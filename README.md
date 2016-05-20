@@ -19,12 +19,12 @@ Add to your project build.gradle file:
 
 ```
 dependencies {
-    compile 'com.github.yatatsu:powerwebview:0.3.1'
-    compile 'com.github.yatatsu:powerwebview-rx:0.3.1' // rx plugin
+    compile 'com.github.yatatsu:powerwebview:0.4.0'
+    compile 'com.github.yatatsu:powerwebview-rx:0.4.0' // rx plugin
 }
 ```
 
-``powerwebview-rx`` has dependencies with ``RxJava 1.0.14`` and ``RxAndroid 1.0.1``.
+``powerwebview-rx`` has dependencies with ``RxJava 1.1.4`` and ``RxAndroid 1.2.0``.
 
 ## See also
 
